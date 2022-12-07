@@ -9,6 +9,7 @@ public class LogicScript : MonoBehaviour
     public int playerScore;
     public Text scoreText;
     public GameObject gameOverScreen;
+    public bool birdIsAlive = true;
 
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd)
@@ -20,10 +21,12 @@ public class LogicScript : MonoBehaviour
     public void restartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        birdIsAlive = true;
     }
 
     public void gameOver()
     {
         gameOverScreen.SetActive(true);
+        birdIsAlive = false;
     }
 }
